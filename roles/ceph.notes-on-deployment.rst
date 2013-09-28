@@ -111,7 +111,7 @@ filesystem::
         -n client.admin \
         --cap mon 'allow *' \
         --cap osd 'allow *' \
-        --cap mds 'allow *'
+        --cap mds 'allow'
 
 In this case the user will need to access all the various services,
 *mon*, *osd* and *mds*.
@@ -123,9 +123,9 @@ access also the monitor and the OSDs::
     do
         ceph-authtool /etc/ceph/ceph.mon.keyring --gen-key \
             -n mds.$mdsname \
-            --cap mds 'allow *' \
-            --cap osd 'allow *' \
-            --cap mon 'allow rwx'
+            --cap mds 'allow' \
+            --cap osd 'allow rwx' \
+            --cap mon 'allow profile mds'
     done
 
 Do the same for the OSDs, but in this case the ``--cap`` options are
@@ -136,7 +136,7 @@ different::
         ceph-authtool /etc/ceph/ceph.mon.keyring --gen-key \
             -n osd.$osdname \
             --cap osd 'allow *' \
-            --cap mon 'allow rwx'
+            --cap mon 'allow profile osd'
     done
 
 This file **must** be present in each ``mon data`` directory on each
