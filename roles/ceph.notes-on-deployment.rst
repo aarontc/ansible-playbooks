@@ -17,7 +17,7 @@ OSD:
 
 ``mkdir -p /var/lib/ceph/osd/${cluser}-${osdnum}``
 
-``ceph auth create osd.${osdnum} osd 'allow *' mon 'allow profile osd' -i /var/lib/ceph/osd/${cluster}-${osdnum}/keychain``
+``ceph auth create osd.${osdnum} osd 'allow *' mon 'allow profile osd' -i /var/lib/ceph/osd/${cluster}-${osdnum}/keyring``
 (/WIP - update notes)
 
 Most of the docs on setting up ceph either use `ceph-deploy` or
