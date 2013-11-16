@@ -10,7 +10,7 @@ MDS:
 
 ``mkdir -p /var/lib/ceph/mds/${cluster}-$(hostname)``
 
-``ceph auth get-or-create mds.$(hostname) mds allow mon 'allow profile mds' osd 'allow rwx' -o /var/lib/ceph/mds/${cluster}-$(hostname)/keychain``
+``ceph auth get-or-create mds.$(hostname) mds allow mon 'allow profile mds' osd 'allow rwx' -o /var/lib/ceph/mds/${cluster}-$(hostname)/keyring``
 
 
 OSD:
